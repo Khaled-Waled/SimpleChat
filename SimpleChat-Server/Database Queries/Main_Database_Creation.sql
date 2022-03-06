@@ -6,6 +6,7 @@ CREATE SCHEMA `SimpleChat` ;
 CREATE TABLE `SimpleChat`.`Users` (
   `ID` INT NOT NULL,
   `Name` VARCHAR(50) NULL,
+  `Passphrase` VARCHAR(15) NULL,
   `phoneNumber` VARCHAR(45) NULL,
   `imgDir` VARCHAR(100) NULL,
   `birthDay` DATETIME NULL,

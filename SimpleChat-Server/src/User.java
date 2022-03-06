@@ -14,11 +14,11 @@ public class User
 
     /**
      * Constructor for the user class
-     * @param id
-     * @param name
-     * @param phoneNumber
-     * @param imgDir
-     * @param birthDay
+     * @param id The ID for a specific user (Required)
+     * @param name  The Username (Not Required but Preferred)
+     * @param phoneNumber   User's phone number (Not required)
+     * @param imgDir    The user's profile picture's directory on the server (Not Required)
+     * @param birthDay  User's Birthday (Not Required)
      */
     public User(int id, String name, String phoneNumber, String imgDir, Date birthDay)
     {
@@ -31,7 +31,7 @@ public class User
 
     /**
      * A utility function to translate a user tuple to a user object
-     * @param resultSet
+     * @param resultSet The Tuple containing the user's data
      * @return the resulting user as an object
      */
     public static User getUserFromTuple(ResultSet resultSet)
@@ -62,9 +62,11 @@ public class User
     }
 
     //Register in the DB
-    boolean registerInDB(User user)
+    public static boolean registerInDB(User user, String password)
     {
         //TODO (registerInDB)
+        //Extract data from parameter
+
 
         return true;
     }
@@ -117,7 +119,7 @@ public class User
     }
 
     /**
-     * @param phoneNumber
+     * @param phoneNumber Phone Number
      */
     public void setPhoneNumber(String phoneNumber)
     {
