@@ -4,7 +4,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class HashUtil
 {
-    public byte[] generateHash(String sample)
+    public static String generateHash(String sample)
     {
 
         byte[] hash = null;
@@ -17,11 +17,11 @@ public class HashUtil
         {
             e.printStackTrace();
         }
-        return hash;
+        return hash.toString();
     }
 
-    public boolean testHashFor(String sample, byte[] hash)
+    public static boolean testHashFor(String sample, String hash)
     {
-        return (hash == generateHash(sample));
+        return (hash.equals(generateHash(sample)));
     }
 }

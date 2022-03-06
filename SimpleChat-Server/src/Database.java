@@ -31,7 +31,8 @@ public class Database
         {
             statement.executeUpdate(sqlQuery);
             return true;
-        } catch (SQLException throwable)
+        }
+        catch (SQLException throwable)
         {
             throwable.printStackTrace();
             return false;
@@ -49,6 +50,19 @@ public class Database
             throwable.printStackTrace();
         }
 
+        return null;
+    }
+
+    public PreparedStatement prepareStatement(String query)
+    {
+        try
+        {
+            return connection.prepareStatement(query);
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
         return null;
     }
 }

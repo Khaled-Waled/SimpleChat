@@ -1,7 +1,9 @@
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
+import java.sql.Date;
+import java.util.Base64;
 
 public class User
 {
@@ -64,10 +66,30 @@ public class User
     //Register in the DB
     public static boolean registerInDB(User user, String password)
     {
-        //TODO (registerInDB)
-        //Extract data from parameter
-
-
+        Database db = Database.getDatabaseInstance();
+        //Prepare query
+        String query =
+                "INSERT INTO `SimpleChat`.`Users`\n" +
+                "(`Name`,`Passphrase`,`phoneNumber`,`imgDir`,`birthDay`)VALUES"+
+                "(?,?,?,?,?)";
+        PreparedStatement preparedStatement = db.prepareStatement(query);
+        try
+        {
+            //Extract data from parameter
+            String passwordHash = HashUtil.generateHash(password);
+            //String passwordHash = new  String(Base64.getDecoder().decode(HashUtil.generateHash(password)));
+            preparedStatement.setString(1, user.getName());
+            preparedStatement.setString(2, passwordHash);
+            preparedStatement.setString(3, user.getPhoneNumber());
+            preparedStatement.setString(4, user.getImgDir());
+            preparedStatement.setDate(5, user.getBirthDay());
+            preparedStatement.executeUpdate();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+            return false;
+        }
         return true;
     }
 
@@ -84,6 +106,14 @@ public class User
         return users;
     }
 
+    //return user data as a string
+    @Override
+    public String toString()
+    {
+        //TODO (User to string)
+
+        return "NOT IMPLEMENTED";
+    }
     //Get user by id
     public User getUserById(int id)
     {
