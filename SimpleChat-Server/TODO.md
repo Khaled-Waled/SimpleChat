@@ -4,11 +4,11 @@
 - [ ] ```User.getUserById```  ==> Get a user provided their id
 - [ ] ```User.toString```     ==> Return user data as a string
 - [ ] Design how messages are stored
-- [ ] Create Message class
-- [ ] Create Message manager
+- [ ] Continue Message manager
 - [ ] Add documentation
 - [ ] Import Spring lib
 - [ ] Create the REST API
+- [ ] Encrypt messages
 
 
 
@@ -21,3 +21,4 @@
 * User.getUserFromTuple ==> Translate User tuple to object
 * Create basic hashing utility
 * ```User.registerInDB``` ==> Register a user in the database
+* Started Message Manager
