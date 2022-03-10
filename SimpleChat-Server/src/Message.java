@@ -1,10 +1,10 @@
-import java.sql.Date;
+import java.sql.Timestamp;
 
 public class Message
 {
     private int senderId;
     private int receiverId;
-    private Date date;
+    private Timestamp date;
     private String content;
 
     @Override
@@ -17,7 +17,14 @@ public class Message
                 '}';
     }
 
-    public Message(int senderId, int receiverId, Date date, String content)
+    /**
+     * Complete Constructor for the message
+     * @param senderId      Sender ID
+     * @param receiverId    Receiver ID
+     * @param date          Message time and date
+     * @param content       Message content
+     */
+    public Message(int senderId, int receiverId, Timestamp date, String content)
     {
         this.senderId = senderId;
         this.receiverId = receiverId;
@@ -25,41 +32,90 @@ public class Message
         this.content = content;
     }
 
+    /**
+     * A Compact constructor that sets the time of the message to now
+     * @param senderId      Sender ID
+     * @param receiverId    Receiver ID
+     * @param content       Message content
+     */
+    public Message(int senderId, int receiverId, String content)
+    {
+        this.senderId = senderId;
+        this.receiverId = receiverId;
+        this.date = new Timestamp(System.currentTimeMillis());
+        this.content = content;
+    }
+
+
+    /**
+     * Get The sender of the message
+     * @return ID ==> int
+     */
     public int getSenderId()
     {
         return senderId;
     }
 
+    /**
+     * Sets the sender's id
+     * @param senderId The id of the sender ==> int
+     */
     public void setSenderId(int senderId)
     {
         this.senderId = senderId;
     }
 
+    /**
+     * Get The receiver of the message
+     * @return ID ==> int
+     */
     public int getReceiverId()
     {
         return receiverId;
     }
 
+
+    /**
+     * Sets the receiver's ID
+     * @param receiverId the id of the receiver ==> int
+     */
     public void setReceiverId(int receiverId)
     {
         this.receiverId = receiverId;
     }
 
-    public Date getDate()
+    /**
+     * Gets the time the message was created
+     * @return date ==> java.sql.Timestamp
+     */
+    public Timestamp getDate()
     {
         return date;
     }
 
-    public void setDate(Date date)
+    /**
+     * Sets the message's timestamp
+     * @param date the message timestamp ==> java.sql.Timestamp
+     */
+    public void setDate(Timestamp date)
     {
         this.date = date;
     }
 
+    /**
+     * Get the message content
+     * @return content ==> String
+     */
     public String getContent()
     {
         return content;
     }
 
+
+    /**
+     * Sets the message's content
+     * @param content The message's content ==> String
+     */
     public void setContent(String content)
     {
         this.content = content;
