@@ -1,12 +1,10 @@
 # **What to do:**
 
-- [ ] ```MessageManager.retrieveConversation``` ==> Retrieve A conversation given two IDs
 - [ ] Do some testing for the message storing system
 - [ ] ```User.getIdsByName``` ==> Get users provided their name (names are not unique)
 - [ ] ```User.getUserById```  ==> Get a user provided their id
 - [ ] ```User.toString```     ==> Return user data as a string
 - [ ] Improve how messages are stored
-- [ ] Continue Message manager
 - [ ] Add documentation
 - [ ] Import Spring lib
 - [ ] Create the REST API
@@ -24,3 +22,4 @@
 * Create basic hashing utility
 * ```User.registerInDB``` ==> Register a user in the database
 * Design how messages are stored
+* ```MessageManager.retrieveConversation``` ==> Retrieve A conversation given two IDs

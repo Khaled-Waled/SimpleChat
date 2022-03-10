@@ -1,6 +1,7 @@
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.sql.Timestamp;
 import java.util.ArrayList;
+
 
 /**
  * The class that manages the storage and parsing of messages in the directory AppData/Chats/xxx.txt
@@ -8,15 +9,29 @@ import java.util.ArrayList;
  */
 public class MessageManager
 {
+    final static String DEFAULT_EXTENSION = "txt";
+
+    /**
+     * @param id1 First id (usually sender's)
+     * @param id2 Second id (usually receiver's)
+     * @param type The Extention that the server uses to store message (Default is DEFAULT_EXTENSION)
+     * @return the naming convention used to store a message
+     */
+    private static String getBasicFileName(int id1, int id2, String type )
+    {
+        return  Math.max(id1,id2)
+                + "_"
+                + Math.min(id1,id2)
+                +"." + type;
+    }
+
+
     private static String getBasicMessageDirectory(int id1, int id2)
     {
         String slashChar = System.getProperty("file.separator");
 
         return  "AppData"+slashChar+"Chats"+slashChar
-                + Math.max(id1,id2)
-                + "_"
-                + Math.min(id1,id2)
-                +".txt";
+                + getBasicFileName(id1,id2,DEFAULT_EXTENSION);
     }
 
 
@@ -52,15 +67,59 @@ public class MessageManager
         return true;
     }
 
-    public static Message parseMessageLine(String line)
+    public static Message parseMessageLine(String line, String sourceFileName)
     {
-        //TODO (retrieveMessage)
-        return null;
+        if (line == null)
+            return null;
+
+
+        char mleChar = 30;
+        //extract data array of size 3
+        String[] data = line.split(String.valueOf(mleChar));
+        String[] userStr = sourceFileName.split("\\.")[0].split("_");
+        int[] user = { Integer.parseInt(userStr[0]), Integer.parseInt(userStr[1])};
+
+        int senderID= user[0];
+        int receiverID= user[1];
+
+        if (data[0].equals("0"))
+        {
+            senderID = user[1];
+            receiverID = user[0];
+        }
+
+
+        Timestamp timestamp = Timestamp.valueOf(data[1]);
+        String content = data[2];
+
+        return new Message(senderID,receiverID,timestamp,content);
     }
 
-    public ArrayList<Message> retrieveConversation(String dir)
+    public static ArrayList<Message> retrieveConversation(int id1, int id2)
     {
-        //TODO (retrieveConversation)
-        return null;
+        ArrayList<Message> messages = new ArrayList<>();
+        String dir =
+                System.getProperty("user.dir") + System.getProperty("file.separator")
+                        + getBasicMessageDirectory(id1, id2);
+        String line;
+        BufferedReader reader;
+        try
+        {
+            reader = new BufferedReader(new FileReader(dir));
+            line = reader.readLine();
+            while (line!=null)
+            {
+                Message message = parseMessageLine(line,getBasicFileName(id1,id2,DEFAULT_EXTENSION));
+                messages.add(message);
+                line = reader.readLine();
+            }
+            reader.close();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+
+        return messages;
     }
 }

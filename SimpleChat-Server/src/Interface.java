@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Interface
 {
     public static void main(String[] args)
@@ -5,19 +7,14 @@ public class Interface
         //Initialize the connection to the database
         //Database db = Database.getDatabaseInstance();
 
-        for (int i=1; i<=5; i++)
-        {
-            String text = "Hello World, For the "+i+"th time!" ;
-            Message message1 = new Message(56,11,text);
-            MessageManager.storeMessage(message1);
-        }
 
-        for (int i=1; i<=5; i++)
-        {
-            String text = "Hello World, For the "+i+"th time!" ;
-            Message message1 = new Message(11,56,text);
-            MessageManager.storeMessage(message1);
-        }
+        MessageManager.storeMessage(new Message(11,56,"text"));
+        MessageManager.storeMessage(new Message(56,11,"hi"));
+
+        ArrayList<Message> messages = MessageManager.retrieveConversation(56,11);
+
+        for(Message message: messages)
+            System.out.println(message.toString());
 
     }
 }

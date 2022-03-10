@@ -1,5 +1,9 @@
 import java.sql.Timestamp;
 
+/**
+ * A class to represent a message and its related operations
+ * @author Khaled-Waled
+ */
 public class Message
 {
     private int senderId;
@@ -7,14 +11,17 @@ public class Message
     private Timestamp date;
     private String content;
 
+    /**
+     * Override for the toString function to show a message as a string.
+     * @return A string that contains the message's data
+     */
     @Override
     public String toString()
     {
         return  "From: " + senderId +
                 ", To: " + receiverId +
                 ", At: " + date.toString() +
-                "\n    content='" + content + '\'' +
-                '}';
+                "\n    content='" + content + '\'';
     }
 
     /**
