@@ -1,6 +1,6 @@
 # Project description:
 
-I Started this project as a proof of concept applying some of  what I have learned in the last two years. This project aims to test the ability to create a new project structure in the form of a client server networked application as opposed to the single process programs made in the past.
+I Started this project as a proof of concept, applying some of what I have learned in the last two years, and by NO means this project is production oriented. This project aims to test the ability to create a new project structure in the form of a client server networked application as opposed to the single process programs made in the past.
 
 
 # Project structure:
@@ -13,5 +13,10 @@ I Started this project as a proof of concept applying some of  what I have learn
 
 3- more client apps in the future... 
 
+# Tools used:
+  * IntelliJ ==> Java IDE used to develop the chat server
+  * MySQL    ==> The Database system Managed by MySQL Workbench
+
+
 ## Note:
-You are free to make pull requests
+* You are free to make pull requests, Please refer first to the ```TODO.md``` file.

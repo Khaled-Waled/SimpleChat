@@ -1,11 +1,13 @@
-# **What to do:**
+#SimpleChat-Server v0.2.0
+
+
+## **What to do:**
 
 - [ ] Do some testing for the message storing system
-- [ ] ```User.getIdsByName``` ==> Get users provided their name (names are not unique)
-- [ ] ```User.getUserById```  ==> Get a user provided their id
-- [ ] ```User.toString```     ==> Return user data as a string
+  - [ ] Design dummy message generating code
+- [ ] Do some testing for Database interaction
 - [ ] Improve how messages are stored
-- [ ] Add documentation
+- [ ] Finish documentation
 - [ ] Import Spring lib
 - [ ] Create the REST API
 - [ ] Encrypt messages
@@ -13,13 +15,8 @@
 
 
 
-# **What was done:**
+## **What was done:**
 
-* Create User class and set attributes
-* Create constructor and Getters & Setters for user class
-* Establish database connection (MYSQL)
-* User.getUserFromTuple ==> Translate User tuple to object
-* Create basic hashing utility
-* ```User.registerInDB``` ==> Register a user in the database
-* Design how messages are stored
-* ```MessageManager.retrieveConversation``` ==> Retrieve A conversation given two IDs
+* Established database connection (MYSQL)
+* Created basic hashing utility
+* Core server logic
