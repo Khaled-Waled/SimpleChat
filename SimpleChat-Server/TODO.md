@@ -5,7 +5,7 @@
 
 - [ ] Do some testing for the message storing system
   - [ ] Design dummy message generating code
-- [ ] Do some testing for Database interaction
+- [ ] Do some testing for Core.Database interaction
 - [ ] Improve how messages are stored
 - [ ] Finish documentation
 - [ ] Import Spring lib

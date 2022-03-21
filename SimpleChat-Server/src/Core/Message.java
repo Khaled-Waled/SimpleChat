@@ -1,3 +1,5 @@
+package Core;
+
 import java.sql.Timestamp;
 
 /**
@@ -28,8 +30,8 @@ public class Message
      * Complete Constructor for the message
      * @param senderId      Sender ID
      * @param receiverId    Receiver ID
-     * @param date          Message time and date
-     * @param content       Message content
+     * @param date          Core.Message time and date
+     * @param content       Core.Message content
      */
     public Message(int senderId, int receiverId, Timestamp date, String content)
     {
@@ -43,7 +45,7 @@ public class Message
      * A Compact constructor that sets the time of the message to now
      * @param senderId      Sender ID
      * @param receiverId    Receiver ID
-     * @param content       Message content
+     * @param content       Core.Message content
      */
     public Message(int senderId, int receiverId, String content)
     {

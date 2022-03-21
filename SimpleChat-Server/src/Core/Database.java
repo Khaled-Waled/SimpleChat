@@ -1,3 +1,5 @@
+package Core;
+
 import java.sql.*;
 
 public class Database
@@ -7,7 +9,7 @@ public class Database
 
     private Database()
     {
-        System.out.println("Starting Database...");
+        System.out.println("Starting Core.Database...");
         try
         {
             connection = DriverManager.getConnection

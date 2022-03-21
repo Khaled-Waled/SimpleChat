@@ -1,3 +1,8 @@
+package Interfaces;
+
+import Core.Message;
+import Core.MessageManager;
+
 import java.util.ArrayList;
 
 public class Interface
@@ -5,7 +10,7 @@ public class Interface
     public static void main(String[] args)
     {
         //Initialize the connection to the database
-        //Database db = Database.getDatabaseInstance();
+        //Core.Database db = Core.Database.getDatabaseInstance();
 
 
         MessageManager.storeMessage(new Message(11,56,"text"));
