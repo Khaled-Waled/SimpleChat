@@ -1,3 +1,5 @@
+package Core;
+
 import java.io.*;
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -40,7 +42,7 @@ public class MessageManager
         String fileDir=
                 getBasicMessageDirectory(message.getSenderId() ,message.getReceiverId());
 
-        //Message Element Separator character
+        //Core.Message Element Separator character
         char mleChar = 30;
 
         //Person with the smaller id stores messages with char = 0

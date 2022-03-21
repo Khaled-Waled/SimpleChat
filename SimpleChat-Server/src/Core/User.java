@@ -1,3 +1,5 @@
+package Core;
+
 import java.sql.Date;
 
 /**
@@ -17,9 +19,9 @@ public class User
      * Constructor for the user class
      * @param id The ID for a specific user (Required)
      * @param name  The Username (Not Required but Preferred)
-     * @param phoneNumber   User's phone number (Not required)
+     * @param phoneNumber   Core.User's phone number (Not required)
      * @param imgDir    The user's profile picture's directory on the server (Not Required)
-     * @param birthDay  User's Birthday (Not Required)
+     * @param birthDay  Core.User's Birthday (Not Required)
      */
     public User(int id, String name, String phoneNumber, String imgDir, Date birthDay)
     {
@@ -37,7 +39,7 @@ public class User
     @Override
     public String toString()
     {
-        return "User{" +
+        return "Core.User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +

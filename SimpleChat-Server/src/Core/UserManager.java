@@ -1,3 +1,8 @@
+package Core;
+
+import Core.Database;
+import Utilities.HashUtil;
+
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,7 +18,7 @@ public class UserManager
     /**
      * A function to store a new user in the database
      * @param user          the user as an object
-     * @param password      User's password
+     * @param password      Core.User's password
      * @return              Success or failure
      */
     public static boolean registerInDB(User user, String password)
@@ -29,7 +34,7 @@ public class UserManager
         {
             //Extract data from parameter
             String passwordHash = HashUtil.generateHash(password);
-            //String passwordHash = new  String(Base64.getDecoder().decode(HashUtil.generateHash(password)));
+            //String passwordHash = new  String(Base64.getDecoder().decode(Utilities.HashUtil.generateHash(password)));
             preparedStatement.setString(1, user.getName());
             preparedStatement.setString(2, passwordHash);
             preparedStatement.setString(3, user.getPhoneNumber());
