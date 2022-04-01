@@ -1,6 +1,9 @@
 #Linux directory file
 .directory
 
+#Server Application data
+/SimpleChat-Server/AppData/*
+
 # Built application files
 *.apk
 *.aar

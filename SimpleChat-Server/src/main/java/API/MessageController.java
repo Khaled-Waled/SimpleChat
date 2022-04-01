@@ -1,5 +1,6 @@
 package main.java.API;
 
+import main.java.API.dataContainers.API_Message;
 import main.java.Core.Message;
 import main.java.Core.MessageManager;
 import org.springframework.web.bind.annotation.*;
@@ -13,13 +14,13 @@ import java.util.ArrayList;
 public class MessageController
 {
 
-    @PutMapping("Messages/send")
-    public boolean putMessage(@RequestBody Message message)
+    @PutMapping("Message")
+    public boolean putMessage(@RequestBody API_Message message)
     {
-        return MessageManager.storeMessage(message);
+        return MessageManager.storeMessage(new Message(message.senderId, message.receiverId, message.content));
     }
 
-    @GetMapping("Messages/{id1}-{id2}")
+    @GetMapping("Message/{id1}-{id2}")
     public ArrayList<Message> getConversation(@PathVariable int id1, @PathVariable int id2)
     {
         return MessageManager.retrieveConversation(id1,id2);

@@ -1,6 +1,6 @@
 package main.java.Core;
 
-import main.Utilities.HashUtil;
+import main.java.Utilities.HashUtil;
 
 import java.sql.Date;
 import java.sql.PreparedStatement;
