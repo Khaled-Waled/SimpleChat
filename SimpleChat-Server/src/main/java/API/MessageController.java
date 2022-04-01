@@ -3,9 +3,12 @@ package main.java.API;
 import main.java.Core.Message;
 import main.java.Core.MessageManager;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.ArrayList;
 
+/**
+ * A Spring controller class that manages message operations
+ * @author Khaled-Waled
+ */
 @RestController
 public class MessageController
 {
@@ -22,19 +25,10 @@ public class MessageController
         return MessageManager.retrieveConversation(id1,id2);
     }
 
-    @GetMapping("/hello")
-    public String testing()
-    {
-        return "Hello there!";
-    }
-    @GetMapping("/error")
-    public String errorPage()
-    {
-        return "ERRORRRR !";
-    }
-    @GetMapping("")
+
+    @GetMapping("/test")
     public String testing2()
     {
-        return "Hello thereeeeee!";
+        return "Hello there!";
     }
 }
